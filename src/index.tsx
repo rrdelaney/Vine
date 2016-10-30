@@ -1,7 +1,7 @@
 import 'css-modules-electron/register'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { List } from 'react-virtualized'
+import * as List from 'react-list'
 import { Button, Card, Icon, Image } from 'semantic-ui-react'
 
 class Vine extends React.Component<{index: number}, {}> {
@@ -11,6 +11,10 @@ class Vine extends React.Component<{index: number}, {}> {
 
   componentWillUnmount() {
     console.log('o_o')
+  }
+
+  componentDidUpdate() {
+    console.log('0000000')
   }
 
   render() {
@@ -40,13 +44,16 @@ class Vine extends React.Component<{index: number}, {}> {
 }
 
 class App extends React.Component<{}, {}> {
-  rowRender({ index }) {
-    return <Vine key={index} index={index}/>
+  rowRender(index, key) {
+    return <Vine key={key} index={index}/>
+    // return <h2 key={key}>{index}</h2>
   }
 
   render() {
     // return <h1>Hello Electron!</h1>
-    return <List overscanRowCount={10} width={300} height={window.innerHeight} rowCount={100} rowHeight={425} rowRenderer={this.rowRender} />
+    return <div style={{overflow: 'auto', maxHeight: window.innerHeight}}>
+      <List itemRenderer={this.rowRender} length={100} type='uniform' />
+    </div>
   }
 }
 
