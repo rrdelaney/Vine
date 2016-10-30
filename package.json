@@ -1,0 +1,24 @@
+{
+  "name": "vine",
+  "version": "0.1.0",
+  "private": true,
+  "main": "main.js",
+  "devDependencies": {
+    "@types/electron": "^1.4.25",
+    "@types/react": "^0.14.43",
+    "@types/react-dom": "^0.14.18",
+    "concurrently": "^3.1.0",
+    "electron": "^1.4.4",
+    "react-scripts": "0.7.0"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "scripts": {
+    "start": "DEV=vine concurrently \"react-scripts start\" \"electron .\"",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

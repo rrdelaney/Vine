@@ -1,0 +1,17 @@
+# JS output files
+src/**/*.js
+src/**/*.jsx
+
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# production
+build
+
+# misc
+.DS_Store
+.env
+npm-debug.log
